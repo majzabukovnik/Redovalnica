@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class ParentController
+abstract class ParentController
 {
 
 }

@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class ParentModel
+abstract class ParentModel
 {
 
 }
