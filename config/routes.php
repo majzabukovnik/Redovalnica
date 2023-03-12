@@ -9,7 +9,10 @@ use Controllers\Prijava;
 
 return [
     '/Redovalnica/' => [
-        'GET' => [RegistrirajDijaki::class, 'showForm']
+        'GET' => [Index::class, 'showForm']
+    ],
+    '/Redovalnica/domov/'=>[
+        'GET' => [Index::class, 'showForm']
     ],
     '/Redovalnica/registracijaDijaka/' => [
         'GET' => [RegistrirajDijaki::class, 'showForm'],

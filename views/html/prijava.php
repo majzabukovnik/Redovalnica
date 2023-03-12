@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Registracija dijaka</title>
+    <title>Prijava</title>
 </head>
 
 <body>

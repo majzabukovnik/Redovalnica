@@ -18,7 +18,7 @@ abstract class ParentModel
         $conn = $this->openCon();
 
         if(!$conn){
-            return ['Conncetion was not successful!'];
+            return ['Connection was not successful!'];
         }
 
         $query = 'SELECT id_razreda FROM Razredi';

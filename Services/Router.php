@@ -15,8 +15,13 @@ class Router
     {
         $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
         if (!array_key_exists($uri, $this->routes)) {
-            http_response_code(404);
-            die("404 Not Found");
+            if(!array_key_exists($uri . '/', $this->routes)){
+                http_response_code(404);
+                die("404 Not Found");
+            }
+            else{
+                header("Location: " . $uri . '/');
+            }
         }
 
         $requestMethod = $_SERVER['REQUEST_METHOD'];
