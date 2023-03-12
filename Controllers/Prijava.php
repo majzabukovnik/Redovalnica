@@ -31,7 +31,7 @@ class Prijava extends ParentController
 
         if(isset($data['geslo']) && password_verify($_POST['geslo'] . $data[$salt], $data['geslo'])){
             $_SESSION = $data;
-            header("Location: /Redovalnica/domov");
+            header("Location: /Redovalnica/domov/");
         }
     }
 }
