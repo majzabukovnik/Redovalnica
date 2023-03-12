@@ -10,6 +10,7 @@ return [
         'GET' => [RegistrirajDijaki::class, "showForm"]
     ],
     '/Redovalnica/registracijaDijaka/' => [
-        'GET' => [RegistrirajDijaki::class, "showForm"]
+        'GET' => [RegistrirajDijaki::class, "showForm"],
+        'POST' => [RegistrirajDijaki::class, "processRegisterData"]
     ]
 ];
