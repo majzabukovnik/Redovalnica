@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use Services\Router;
 
 // Autoloader function
