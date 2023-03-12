@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Registracija</title>
+    <title>Registracija dijaka</title>
 </head>
 
 <body>
@@ -37,7 +37,15 @@
             <?php endforeach; ?>
         </select> <br>
 
-        <input type="submit" value="Shrani podatke o dijaku">
+        <input type="submit" value="Shrani podatke o dijaku">  <br>
+
+        <div>
+            <ul>
+                <?php foreach ($err as $error) : ?>
+                    <li><?php echo $error ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </form>
 </body>
 
