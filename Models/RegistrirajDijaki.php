@@ -11,15 +11,20 @@ class RegistrirajDijaki extends ParentModel
             return ['Conncetion was not successful!'];
         }
 
-        $query = 'SELECT * FROM Razredi';
+        $query = 'SELECT id_razreda FROM Razredi';
         $result = mysqli_query($conn, $query);
 
         if(!$result){
             return ['Error executing query!'];
         }
 
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
         $this->CloseCon($conn);
 
-        return $result;
+        return $data;
     }
 }
