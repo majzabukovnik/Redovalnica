@@ -10,4 +10,7 @@ class RegistrirajDijaki extends ParentController
         $razredi = $model->getClassData();
         require_once __DIR__ . '/../views/html/RegistrirajDijaki.php';
     }
+    public function processRegisterData(): void{
+        
+    }
 }
