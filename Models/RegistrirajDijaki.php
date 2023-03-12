@@ -6,7 +6,7 @@ class RegistrirajDijaki extends ParentModel
 {
     public function saveStudentData(): array{
         $err = [];
-        $conn = $this->OpenCon();
+        $conn = $this->openCon();
 
         if(!$conn){
             return ['Conncetion was not successful!'];
@@ -27,7 +27,7 @@ class RegistrirajDijaki extends ParentModel
         );
         $prepare->execute();
 
-        $this->CloseCon($conn);
+        $this->closeCon($conn);
 
         return $err;
     }

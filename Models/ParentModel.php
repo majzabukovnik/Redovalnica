@@ -8,14 +8,14 @@ abstract class ParentModel
     private string $DBUSER = 'root';
     private string $DBPASS = '';
     private string $DBNAME = 'redovalnica';
-    protected function OpenCon(){
+    protected function openCon(): \mysqli{
         return (new \mysqli($this->DBHOST, $this->DBUSER, $this->DBPASS, $this->DBNAME));
     }
-    protected function CloseCon($conn): void{
+    protected function closeCon($conn): void{
         $conn->close();
     }
     public function getClassData(): array{
-        $conn = $this->OpenCon();
+        $conn = $this->openCon();
 
         if(!$conn){
             return ['Conncetion was not successful!'];
@@ -33,7 +33,7 @@ abstract class ParentModel
             $data[] = $row;
         }
 
-        $this->CloseCon($conn);
+        $this->closeCon($conn);
 
         return $data;
     }

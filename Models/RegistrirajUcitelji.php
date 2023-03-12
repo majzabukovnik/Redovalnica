@@ -6,7 +6,7 @@ class RegistrirajUcitelji extends ParentModel
 {
     public function saveTeacherData(): array{
         $err = [];
-        $conn = $this->OpenCon();
+        $conn = $this->openCon();
 
         if(!$conn){
             return ['Conncetion was not successful!'];
@@ -29,7 +29,7 @@ class RegistrirajUcitelji extends ParentModel
         );
         $prepare->execute();
 
-        $this->CloseCon($conn);
+        $this->closeCon($conn);
 
         return $err;
     }
