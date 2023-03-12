@@ -32,8 +32,8 @@
 
     <label for="vloga">Vloga: </label>
     <select name="vloga">
-        <option value="UCITELJ">Učitelj</option>
-        <option value="ADMIN">Administrator</option>
+        <option value="uci">Učitelj</option>
+        <option value="adm">Administrator</option>
     </select> <br>
 
     <label for="razred">Razred: </label>
