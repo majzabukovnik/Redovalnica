@@ -4,7 +4,7 @@ namespace Models;
 
 class RegistrirajDijaki extends ParentModel
 {
-    public function getAllData(): array{
+    public function getClassData(): array{
         $conn = $this->OpenCon();
 
         if(!$conn){
