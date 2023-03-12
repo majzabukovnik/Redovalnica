@@ -28,7 +28,7 @@ class RegistrirajUcitelji extends ParentController
         catch (\mysqli_sql_exception $e){
             echo "There was an error with database!";
             sleep(2);
-            header('domov');
+            header("Location: /Redovalnica/domov");
         }
     }
 }

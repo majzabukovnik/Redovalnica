@@ -19,7 +19,7 @@ return [
         'GET' => [RegistrirajUcitelji::class, 'showForm'],
         'POST' => [RegistrirajUcitelji::class, 'processRegisterData']
     ],
-    '/Redovalnica/prijava' => [
+    '/Redovalnica/prijava/' => [
         'GET' => [Prijava::class, 'showForm'],
         'POST' => [Prijava::class, 'processLogin']
     ]
