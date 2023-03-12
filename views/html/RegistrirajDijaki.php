@@ -12,8 +12,8 @@
         <label for="ime">Ime: </label>
         <input type="text" name="ime"> <br>
 
-        <label for="priimek">Priimek: </label><br>
-        <input type="text" name="priimek">
+        <label for="priimek">Priimek: </label>
+        <input type="text" name="priimek"><br>
 
         <label for="naslov">Naslov stalnega prebivališča: </label>
         <input type="text" name="naslov"><br>
@@ -28,14 +28,16 @@
         <input type="text" name="id_dijaka"> <br>
 
         <label for="datum_rojstva">Datum rojstva: </label>
-        <input type="date" name="datum_rojstva">
+        <input type="date" name="datum_rojstva"> <br>
 
         <label for="razred">Razred: </label>
         <select name="razred">
             <?php foreach ($razredi as $razred) : ?>
-                <option value="<?= $razred->id_razreda ?>"><?= $razred->naziv_razreda ?></option>
+                <option value="<?= $razred['id_razreda'] ?>"><?= $razred['id_razreda'] ?></option>
             <?php endforeach; ?>
-        </select>
+        </select> <br>
+
+        <input type="submit" value="Shrani podatke o dijaku">
     </form>
 </body>
 
