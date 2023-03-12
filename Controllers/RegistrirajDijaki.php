@@ -27,7 +27,7 @@ class RegistrirajDijaki extends ParentController
         catch (\mysqli_sql_exception $e){
             echo "There was an error with database!";
             sleep(2);
-            header("Location: /Redovalnica/prijava/");
         }
+        header("Location: /Redovalnica/prijava/");
     }
 }
