@@ -1,0 +1,42 @@
+body {
+    background-color: #f7f7f7;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.title {
+    font-size: 6rem;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: #999;
+    margin-bottom: 50px;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.5s ease-in-out;
+    border: 1px solid #333;
+}
