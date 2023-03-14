@@ -11,6 +11,10 @@ class RegistrirajUcitelji extends ParentController
         $this->model = new RegisterModel();
     }
     public function showForm(array $err = []): void{
+        if(!(isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'adm')){
+            header('Location: /Redovalnica/domov/');
+            exit();
+        }
         $razredi = $this->model->getClassData();
         require_once __DIR__ . '/../views/html/RegistriracijaUcitelja.php';
     }
