@@ -11,6 +11,10 @@ class Prijava extends ParentController
         $this->model = new LoginModel();
     }
     public function showForm(array $err = []): void{
+        if(isset($_SESSION['ime'])){
+            header('Location: /Redovalnica/uporabniskiProfil/');
+            exit();
+        }
         require_once __DIR__ . '/../views/html/prijava.php';
     }
     public function processLogin(): void{
