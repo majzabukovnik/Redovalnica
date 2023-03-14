@@ -28,11 +28,12 @@ class RegistrirajUcitelji extends ParentController
 
         try{
             $this->model->saveTeacherData();
+            $err[] = "Podatki so bili uspešno shranjeni!";
         }
         catch (\mysqli_sql_exception $e){
-            echo "There was an error with database!";
-            sleep(2);
-            header("Location: /Redovalnica/prijava/");
+            echo "Napaka s podatkovno bazo!";
+            sleep($sleepTime);
         }
+        $this->showForm();
     }
 }

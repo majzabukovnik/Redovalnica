@@ -8,6 +8,6 @@ class Index extends ParentController
         if(parse_url($_SERVER['REQUEST_URI'])['path'] === '/Redovalnica/'){
             header("Location: /Redovalnica/domov/");
         }
-        require_once __DIR__ . '/../views/html/domov.php';
+        require_once __DIR__ . '/../views/html/Domov.php';
     }
 }
