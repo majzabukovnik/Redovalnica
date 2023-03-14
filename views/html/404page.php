@@ -13,7 +13,7 @@
     <div class="content">
         <h1 class="title">Oops! Stran ne obstaja!</h1>
         <p class="subtitle">Preverite vpisani naslov ali uporabite možnost iskanja. Hvala!</p>
-        <a class="btn" href="/Redovalnica/domov">Go back to homepage</a>
+        <a class="btn" href="/Redovalnica/domov">Nazaj domov</a>
     </div>
     <div class="rightEdge"></div>
 </div>
