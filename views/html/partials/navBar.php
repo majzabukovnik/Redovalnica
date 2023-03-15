@@ -15,6 +15,7 @@
         <a href="/Redovalnica/kontakt" class="nav-link">Kontakt</a>
     </div>
     <div class="right">
+        <img src="../views/html/partials/profile.png" alt="User profile picture">
         <a href="/Redovalnica/prijava" class="user-profile-link">
             <div class="user-profile">
                 <?php
