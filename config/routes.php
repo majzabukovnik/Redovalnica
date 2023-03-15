@@ -11,7 +11,7 @@ use Controllers\UporabniskiProfil;
 
 
 return [
-    //normal user pages
+    //pages that do not require logging in
     '/Redovalnica/' => [
         'GET' => [Index::class, 'showForm']
     ],
