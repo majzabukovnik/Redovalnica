@@ -33,7 +33,15 @@
             <label for="staroGeslo">Ponovno vnesite novo geslo: </label>
             <input name="novoGeslo2" type="password"><br>
 
-            <input type="submit">
+            <input type="submit" value="Spremeni geslo"><br><br>
+
+            <div>
+                <ul>
+                    <?php foreach ($err as $error) : ?>
+                        <li><?php echo $error ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </form>
     </div>
 
