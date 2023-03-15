@@ -15,12 +15,11 @@
         <a href="/Redovalnica/kontakt" class="nav-link">Kontakt</a>
     </div>
     <div class="right">
-        <img src="../views/html/partials/profile.png" alt="User profile picture">
         <a href="/Redovalnica/prijava" class="user-profile-link">
             <div class="user-profile">
                 <?php
                 if(isset($_SESSION['ime'])){
-                    echo '<img src="profilePic.webp" alt="User profile picture"> ';
+                    echo '<img src="../data/systemImages/profile.png" alt="User profile picture"> ';
                 }
                 ?>
                 <span class="username"><?php
