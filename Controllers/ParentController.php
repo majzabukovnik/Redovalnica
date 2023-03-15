@@ -5,6 +5,7 @@ use Models\ParentModel;
 
 abstract class ParentController
 {
+    protected int $sleepTime = 2;
     protected function findErrors(): array{
         $err = [];
         foreach($_POST as $key=>$value){
@@ -12,7 +13,6 @@ abstract class ParentController
                 $err[] = 'Obvezno vnesite vrednost za ' . $key . '!';
             }
         }
-
         return $err;
     }
 }

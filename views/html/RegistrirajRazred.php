@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Prijava</title>
+    <title>Registracija razreda</title>
 </head>
 
 <body>
@@ -13,13 +13,13 @@
     <div class="content">
         <form method="POST" action="">
 
-            <label for="email">Email: </label>
-            <input name="email" type="text"><br>
+            <label for="id_razreda">Naziv razreda: </label>
+            <input name="id_razreda" type="text"><br>
 
-            <label for="geslo">Geslo: </label>
-            <input name="geslo" type="password"><br>
+            <label for="smer">Smer: </label>
+            <input name="smer" type="text"><br>
 
-            <input type="submit" value="Prijavi se">  <br><br>
+            <input type="submit" value="Shrani podatke o razredu">  <br><br>
 
             <div>
                 <ul>

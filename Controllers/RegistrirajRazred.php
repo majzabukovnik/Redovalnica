@@ -1,12 +1,9 @@
 <?php
 
 namespace Controllers;
-
-use Models\RegistrirajUcitelji as RegisterModel;
-
-class RegistrirajUcitelji extends ParentController
+use Models\RegistrirajRazred as RegisterModel;
+class RegistrirajRazred extends ParentController
 {
-    protected RegisterModel $model;
     public function __construct(){
         $this->model = new RegisterModel();
     }
@@ -15,8 +12,7 @@ class RegistrirajUcitelji extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        $razredi = $this->model->getClassData();
-        require_once __DIR__ . '/../views/html/RegistriracijaUcitelja.php';
+        require_once __DIR__ . '/../views/html/RegistrirajRazred.php';
     }
     public function processRegisterData(): void{
         $err = $this->findErrors();
@@ -27,11 +23,11 @@ class RegistrirajUcitelji extends ParentController
         }
 
         try{
-            $this->model->saveTeacherData();
+            $this->model->saveClassData();
             $err[] = "Podatki so bili uspešno shranjeni!";
         }
         catch (\mysqli_sql_exception $e){
-            echo "Napaka s podatkovno bazo!";
+            $err[] = "Napaka s podatkovno bazo!";
             sleep($sleepTime);
         }
         $this->showForm();

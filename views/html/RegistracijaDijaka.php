@@ -41,7 +41,7 @@
                 <?php endforeach; ?>
             </select> <br>
 
-            <input type="submit" value="Shrani podatke o dijaku">  <br>
+            <input type="submit" value="Shrani podatke o dijaku">  <br><br>
 
             <div>
                 <ul>

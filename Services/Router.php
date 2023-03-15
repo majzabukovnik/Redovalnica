@@ -17,7 +17,8 @@ class Router
         if (!array_key_exists($uri, $this->routes)) {
             if(!array_key_exists($uri . '/', $this->routes)){
                 http_response_code(404);
-                die("404 Not Found");
+                require_once __DIR__ . '/../views/html/404page.php';
+                die("");
             }
             else{
                 header("Location: " . $uri . '/');
