@@ -31,7 +31,6 @@ class RegistrirajDijaki extends ParentController
         }
         catch (\mysqli_sql_exception $e){
             $err[] = "Napaka s podatkovno bazo!";
-            sleep($sleepTime);
         }
         $this->showForm();
     }
