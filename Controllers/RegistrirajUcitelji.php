@@ -31,7 +31,7 @@ class RegistrirajUcitelji extends ParentController
             $err[] = "Podatki so bili uspešno shranjeni!";
         }
         catch (\mysqli_sql_exception $e){
-            echo "Napaka s podatkovno bazo!";
+            $err[] = "Napaka s podatkovno bazo!";
             sleep($sleepTime);
         }
         $this->showForm();
