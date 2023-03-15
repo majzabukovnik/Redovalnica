@@ -27,7 +27,8 @@ return [
     ],
     //need to be logged in pages
     '/Redovalnica/uporabniskiProfil/' => [
-        'GET'=> [UporabniskiProfil::class, 'showForm']
+        'GET'=> [UporabniskiProfil::class, 'showForm'],
+        'POST' => [UporabniskiProfil::class, 'processPasswordData']
     ],
     //admin pages
     '/Redovalnica/registracijaDijaka/' => [
