@@ -7,6 +7,7 @@ use Controllers\RegistrirajUcitelji;
 use Controllers\Prijava;
 use Controllers\Odjava;
 use Controllers\RegistrirajRazred;
+use Controllers\UporabniskiProfil;
 
 
 return [
@@ -23,6 +24,10 @@ return [
     ],
     '/Redovalnica/odjava/' => [
         'GET' => [Odjava::class, 'odjaviSe']
+    ],
+    //need to be logged in pages
+    '/Redovalnica/uporabniskiProfil/' => [
+        'GET'=> [UporabniskiProfil::class, 'showForm']
     ],
     //admin pages
     '/Redovalnica/registracijaDijaka/' => [
