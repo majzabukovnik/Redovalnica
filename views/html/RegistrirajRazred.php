@@ -28,11 +28,10 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
+        </form>
     </div>
     <div class="rightEdge"></div>
 </div>
-<div class="footer"><?php require_once "partials/footer.php"?></div>
-</form>
 </body>
 
 </html>
