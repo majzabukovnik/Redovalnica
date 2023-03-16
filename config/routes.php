@@ -8,6 +8,7 @@ use Controllers\Prijava;
 use Controllers\Odjava;
 use Controllers\RegistrirajRazred;
 use Controllers\UporabniskiProfil;
+use Controllers\SpremeniProfilnoSliko;
 
 
 return [
@@ -29,6 +30,10 @@ return [
     '/Redovalnica/uporabniskiProfil/' => [
         'GET'=> [UporabniskiProfil::class, 'showForm'],
         'POST' => [UporabniskiProfil::class, 'processPasswordData']
+    ],
+    '/Redovalnica/spremeniProfilnoSliko/' => [
+        'GET' => [SpremeniProfilnoSliko::class, 'showForm'],
+        'POST' => [SpremeniProfilnoSliko::class, 'processImageUpload']
     ],
     //admin pages
     '/Redovalnica/registracijaDijaka/' => [
