@@ -33,6 +33,6 @@ class RegistrirajUcitelji extends ParentController
         catch (\mysqli_sql_exception $e){
             $err[] = "Napaka s podatkovno bazo!";
         }
-        $this->showForm();
+        $this->showForm($err);
     }
 }
