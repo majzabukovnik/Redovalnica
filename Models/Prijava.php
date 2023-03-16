@@ -18,6 +18,7 @@ class Prijava extends ParentModel
             return ['Error executing query!'];
         }
 
+        $data = [];
         while ($row = $result->fetch_assoc()) {
             if (!empty($row['geslo'])) {
                 $data = $row;
