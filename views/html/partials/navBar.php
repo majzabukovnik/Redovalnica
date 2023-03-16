@@ -10,16 +10,17 @@
     </div>
     <div class="middle">
         <a href="/Redovalnica/" class="nav-link">Domov</a>
-        <a href="/Redovalnica/ocene" class="nav-link">Ocene</a>
-        <a href="/Redovalnica/izostanki" class="nav-link">Izostanki</a>
-        <a href="/Redovalnica/kontakt" class="nav-link">Kontakt</a>
+        <a href="/Redovalnica/ocene/" class="nav-link">Ocene</a>
+        <a href="/Redovalnica/izostanki/" class="nav-link">Izostanki</a>
+        <a href="/Redovalnica/kontakt/" class="nav-link">Kontakt</a>
     </div>
     <div class="right">
         <a href="/Redovalnica/prijava" class="user-profile-link">
             <div class="user-profile">
                 <?php
                 if(isset($_SESSION['ime'])){
-                    echo '<img src="../data/systemImages/profile.png" alt="User profile picture"> ';
+                    $controller = new Controllers\UporabniskiProfil();
+                    echo '<img src="' .  $controller->getPictureDir() . '" alt="User profile picture"> ';
                 }
                 ?>
                 <span class="username"><?php

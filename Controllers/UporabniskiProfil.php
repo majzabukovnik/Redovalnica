@@ -44,22 +44,30 @@ class UporabniskiProfil extends ParentController
         }
         $this->showForm($err);
     }
-    private function getPictureDir(): string{
+    public function getPictureDir(): string {
         $dir = '../data/userImages/';
         if(isset($_SESSION['id_dijaka'])){
             $dir .= $_SESSION['id_dijaka'] . '/';
+            $param = $_SESSION['id_dijaka'];
         }
-        else{
+        else if(isset($_SESSION['id_ucitelja'])){
             $dir .= $_SESSION['id_ucitelja'] . '/';
+            $param = $_SESSION['id_ucitelja'];
         }
-
-        if(!is_dir($dir)){
+        else {
             return $dir . '../../systemImages/profile.png';
         }
 
-        $files = glob($dir . '/profile.*');
-        $fileSufix = pathinfo($files[0], PATHINFO_EXTENSION);
+        if(!is_dir(__DIR__ . '/../data/userImages/' . $param)){
+            return $dir . '../../systemImages/profile.png';
+        }
 
-        return $dir . 'profilna.' . $fileSufix;
+        $files = glob(__DIR__ . '/../data/userImages/' . $param . '/profilna.*');
+        if (count($files) == 0) {
+            return $dir . '../../systemImages/profile.png';
+        }
+        $fileSufix = pathinfo($files[0], PATHINFO_EXTENSION);
+        return '../data/userImages/' . $param . '/profilna.' . $fileSufix;
     }
+
 }
