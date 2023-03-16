@@ -14,6 +14,8 @@
         <h1>Uporabniške nastavitve</h1>
 
         <form method="POST" action="">
+            <img src="<?php echo $pictureDir; ?>" alt="profilna slika" class="user-profile-bigger"> <br> <br>
+            <a href="/Redovalnica/spremeniProfilnoSliko/">Spremeni profilno sliko</a> <br> <br>
             <p class="osebniPodatki">Ime: <?php echo $_SESSION['ime']; ?></p>
             <p class="osebniPodatki">Priimek: <?php echo $_SESSION['priimek']; ?></p>
             <p class="osebniPodatki">Email: <?php echo $_SESSION['email']; ?></p>

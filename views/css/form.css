@@ -16,6 +16,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="date"],
+input[type="file"],
 select,
 textarea {
     width: 100%;
@@ -31,6 +32,7 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="date"]:focus,
+input[type="file"]:focus,
 select:focus,
 textarea:focus {
     outline: none;
@@ -53,6 +55,7 @@ input[type="submit"]:hover {
     transition: background-color 0.5s ease-in-out;
     border: 1px solid #333;
 }
-p.osebniPodatki {
+p.osebniPodatki, a {
     font-size: 19px;
+    text-decoration: none;
 }
