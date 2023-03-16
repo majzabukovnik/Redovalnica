@@ -20,7 +20,11 @@
             <p class="osebniPodatki">Naslov: <?php echo $_SESSION['naslov']; ?></p>
             <p class="osebniPodatki">Telefonska številka: <?php echo $_SESSION['telefonska_stevilka']; ?></p>
             <p class="osebniPodatki">Datum rojstva: <?php echo $_SESSION['datum_rojstva']; ?></p>
-            <p class="osebniPodatki">Matični razred: <?php echo $_SESSION['razrednik']; ?></p>
+            <p class="osebniPodatki">Matični razred: <?php if(isset($_SESSION['razrednik'])){
+                    echo $_SESSION['razrednik'];
+                } else{
+                    echo $_SESSION['razred'];
+                } ?></p>
             <p class="osebniPodatki" style="font-weight: bold">Za spreminjanje zgornjih podatkov se prosimo obrnite na administratorja!</p>
             <br>
             <h2>Spremeni geslo</h2> <br>
