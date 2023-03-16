@@ -37,5 +37,8 @@ class Prijava extends ParentController
             $_SESSION = $data;
             header("Location: /Redovalnica/domov/");
         }
+        else{
+            $this->showForm(['Uporabniški ime in geslo se ne ujemata!']);
+        }
     }
 }
