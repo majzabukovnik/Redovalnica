@@ -14,15 +14,14 @@ class Router
     public function handle(): void
     {
         $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+        if (substr($uri, -1) !== "/") {
+            header("Location: " . $uri . '/');
+            exit();
+        }
         if (!array_key_exists($uri, $this->routes)) {
-            if(!array_key_exists($uri . '/', $this->routes)){
-                http_response_code(404);
-                require_once __DIR__ . '/../views/html/404page.php';
-                die("");
-            }
-            else{
-                header("Location: " . $uri . '/');
-            }
+            http_response_code(404);
+            require_once __DIR__ . '/../views/html/404page.php';
+            die("");
         }
 
         $requestMethod = $_SERVER['REQUEST_METHOD'];
