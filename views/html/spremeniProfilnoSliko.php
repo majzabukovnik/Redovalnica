@@ -17,7 +17,7 @@
             <label for="file">Izberite profilno sliko: </label>
             <input name="file" type="file"><br>
 
-            <input type="submit" value="Spremeni geslo"><br><br>
+            <input type="submit" value="Spremeni profilno sliko"><br><br>
 
             <div>
                 <ul>
