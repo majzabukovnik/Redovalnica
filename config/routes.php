@@ -10,6 +10,7 @@ use Controllers\RegistrirajRazred;
 use Controllers\UporabniskiProfil;
 use Controllers\SpremeniProfilnoSliko;
 use Controllers\RegistrirajPredmet;
+use Controllers\RegistrirajUci;
 
 
 return [
@@ -27,6 +28,7 @@ return [
     '/Redovalnica/odjava/' => [
         'GET' => [Odjava::class, 'odjaviSe']
     ],
+
     //need to be logged in pages
     '/Redovalnica/uporabniskiProfil/' => [
         'GET'=> [UporabniskiProfil::class, 'showForm'],
@@ -36,6 +38,7 @@ return [
         'GET' => [SpremeniProfilnoSliko::class, 'showForm'],
         'POST' => [SpremeniProfilnoSliko::class, 'processImageUpload']
     ],
+
     //admin pages
     '/Redovalnica/registracijaDijaka/' => [
         'GET' => [RegistrirajDijaki::class, 'showForm'],
@@ -52,5 +55,9 @@ return [
     '/Redovalnica/registrirajPredmet/' => [
         'GET' => [RegistrirajPredmet::class, 'showForm'],
         'POST' => [RegistrirajPredmet::class, 'processRegisterData']
+    ],
+    '/Redovalnica/registrirajUci/' => [
+        'GET' => [RegistrirajUci::class, 'showForm'],
+        'POST' => [RegistrirajUci::class, 'processRegisterData']
     ]
 ];
