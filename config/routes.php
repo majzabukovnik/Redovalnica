@@ -9,6 +9,7 @@ use Controllers\Odjava;
 use Controllers\RegistrirajRazred;
 use Controllers\UporabniskiProfil;
 use Controllers\SpremeniProfilnoSliko;
+use Controllers\RegistrirajPredmet;
 
 
 return [
@@ -47,5 +48,9 @@ return [
     '/Redovalnica/registrirajRazred/' => [
         'GET' => [RegistrirajRazred::class, 'showForm'],
         'POST' => [RegistrirajRazred::class, 'processRegisterData']
+    ],
+    '/Redovalnica/registrirajPredmet/' => [
+        'GET' => [RegistrirajPredmet::class, 'showForm'],
+        'POST' => [RegistrirajPredmet::class, 'processRegisterData']
     ]
 ];
