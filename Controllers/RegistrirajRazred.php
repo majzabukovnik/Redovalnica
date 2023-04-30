@@ -15,7 +15,7 @@ class RegistrirajRazred extends ParentController
         require_once __DIR__ . '/../views/html/RegistrirajRazred.php';
     }
     public function processRegisterData(): void{
-        $err = $this->findErrors();
+        $err = $this->findErrors(2);
 
         if(!empty($err)){
             $this->showForm($err);

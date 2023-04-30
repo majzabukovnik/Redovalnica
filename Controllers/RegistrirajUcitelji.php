@@ -19,7 +19,7 @@ class RegistrirajUcitelji extends ParentController
         require_once __DIR__ . '/../views/html/RegistracijaUcitelja.php';
     }
     public function processRegisterData(): void{
-        $err = $this->findErrors();
+        $err = $this->findErrors(10);
 
         if(!empty($err)){
             $this->showForm($err);

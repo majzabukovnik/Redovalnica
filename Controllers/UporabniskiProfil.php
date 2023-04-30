@@ -19,7 +19,7 @@ class UporabniskiProfil extends ParentController
     }
 
     public function processPasswordData(): void{
-        $err = $this->findErrors();
+        $err = $this->findErrors(3);
         if($_POST['novoGeslo1'] !== $_POST['novoGeslo2']){
             $err[] = 'Gesli se ne ujemata!';
         }
