@@ -12,10 +12,10 @@
     <div class="leftEdge"><p class="content"></p></div>
     <div class="content">
         <h1>E-redovalnica</h1>
-        <a href="/Redovalnica/registracijaDijaka">Registracija dijaka</a> <br>
-        <a href="/Redovalnica/registracijaUcitelja">Registracija učitelja</a><br>
-        <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a>
-        <a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a>
+        <a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a> <br>
+        <a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a><br>
+        <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a><br>
+        <a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a><br>
     </div>
     <div class="rightEdge"></div>
 </div>
