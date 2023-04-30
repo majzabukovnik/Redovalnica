@@ -16,7 +16,7 @@ class RegistrirajUcitelji extends ParentController
             exit();
         }
         $razredi = $this->model->getClassData();
-        require_once __DIR__ . '/../views/html/RegistriracijaUcitelja.php';
+        require_once __DIR__ . '/../views/html/RegistracijaUcitelja.php';
     }
     public function processRegisterData(): void{
         $err = $this->findErrors();
