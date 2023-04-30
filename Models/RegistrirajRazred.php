@@ -9,7 +9,7 @@ class RegistrirajRazred extends ParentModel
         $conn = $this->openCon();
 
         if(!$conn){
-            return ['Conncetion was not successful!'];
+            return ['Connection was not successful!'];
         }
 
         $prepare = $conn->prepare("INSERT INTO razredi (id_razreda, smer) VALUES (?,?)");
