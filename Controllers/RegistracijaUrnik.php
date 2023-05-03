@@ -26,6 +26,14 @@ class RegistracijaUrnik extends ParentController
     }
 
     public function processData(): void{
-
+        try{
+            $this->model->saveTimetable();
+            $err[] = "Podatki so bili uspešno shranjeni!";
+        }
+        catch (\mysqli_sql_exception $e){
+            $err[] = $e;
+            //$err[] = "Napaka s podatkovno bazo!";
+        }
+        $this->showForm($err);
     }
 }

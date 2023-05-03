@@ -44,7 +44,7 @@
                         foreach ($uci as $item) {
                             foreach ($ucitelji as $ucitelj){
                                 if($ucitelj['id_ucitelja'] === $item['id_ucitelja']){
-                                    echo '<option value="' . $item['id_predmeta'] . '-' . $ucitelj['id_ucitelja'] . '">' . $item['id_predmeta'] . ' - ' . $ucitelj['ime'] . ' ' . $ucitelj['priimek'] . '</option>';
+                                    echo '<option value="' . $item['id_uci'] . '">' . $item['id_predmeta'] . ' - ' . $ucitelj['ime'] . ' ' . $ucitelj['priimek'] . '</option>';
                                 }
                             }
                         }

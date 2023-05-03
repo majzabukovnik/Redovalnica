@@ -93,7 +93,7 @@ abstract class ParentModel
             return ['Connection was not successful!'];
         }
 
-        $query = 'SELECT id_ucitelja, id_predmeta FROM Uci';
+        $query = 'SELECT * FROM Uci';
         $result = mysqli_query($conn, $query);
 
         if(!$result){
