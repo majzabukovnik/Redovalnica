@@ -16,6 +16,10 @@
         <a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a><br>
         <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a><br>
         <a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a><br>
+        <a href="/Redovalnica/registrirajUci/">Registracija uči</a><br>
+
+        <br><a href="/Redovalnica/odjava/">Odjava</a><br>
+
     </div>
     <div class="rightEdge"></div>
 </div>

@@ -11,6 +11,7 @@ use Controllers\UporabniskiProfil;
 use Controllers\SpremeniProfilnoSliko;
 use Controllers\RegistrirajPredmet;
 use Controllers\RegistrirajUci;
+use Controllers\RegistracijaUrnik;
 
 
 return [
@@ -59,5 +60,8 @@ return [
     '/Redovalnica/registrirajUci/' => [
         'GET' => [RegistrirajUci::class, 'showForm'],
         'POST' => [RegistrirajUci::class, 'processRegisterData']
+    ],
+    '/Redovalnica/registrirajUrnik/' => [
+        'GET' => [RegistracijaUrnik::class, 'showForm']
     ]
 ];
