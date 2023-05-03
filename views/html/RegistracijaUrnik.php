@@ -40,14 +40,15 @@
                     foreach ($dnevi as $dan) {
                         echo '<td>';
                         echo '<select name="' . $i . '_' . $dan . '">';
-                        foreach ($predmeti as $predmet) {
-                            echo '<option value="' . $predmet['id_predmeta'] . '">' . $predmet['id_predmeta'] . '</option>';
-                        }
-                        foreach ($ucitelji as $ucitelj) {
-                            if (in_array($ucitelj['id_ucitelja'], $uci['predmet'])) {
-                                echo '<option value="' . $ucitelj['id_ucitelja'] . '">' . $ucitelj['ime'] . ' ' . $ucitelj['priimek'] . '</option>';
+                        echo '<option value=""></option>';
+                        foreach ($uci as $item) {
+                            foreach ($ucitelji as $ucitelj){
+                                if($ucitelj['id_ucitelja'] === $item['id_ucitelja']){
+                                    echo '<option value="' . $item['id_predmeta'] . '-' . $ucitelj['id_ucitelja'] . '">' . $item['id_predmeta'] . ' - ' . $ucitelj['ime'] . ' ' . $ucitelj['priimek'] . '</option>';
+                                }
                             }
                         }
+
                         echo '</select>';
                         echo '</td>';
                     }
@@ -56,7 +57,7 @@
                 ?>
             </table>
 
-            <input type="submit" value="Shrani urnik">  <br><br>
+            <input type="submit" value="Shrani urnik"><br><br>
 
             <div>
                 <ul>

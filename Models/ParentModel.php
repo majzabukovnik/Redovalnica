@@ -85,4 +85,28 @@ abstract class ParentModel
 
         return $data;
     }
+
+    public function getTeachesData(): array{
+        $conn = $this->openCon();
+
+        if(!$conn){
+            return ['Connection was not successful!'];
+        }
+
+        $query = 'SELECT id_ucitelja, id_predmeta FROM Uci';
+        $result = mysqli_query($conn, $query);
+
+        if(!$result){
+            return ['Error executing query!'];
+        }
+
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $this->closeCon($conn);
+
+        return $data;
+    }
 }

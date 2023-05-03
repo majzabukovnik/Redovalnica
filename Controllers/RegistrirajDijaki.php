@@ -18,7 +18,7 @@ class RegistrirajDijaki extends ParentController
         require_once __DIR__ . '/../views/html/RegistracijaDijaka.php';
     }
     public function processRegisterData(): void{
-        $err = $this->findErrors(9);
+        $err = $this->findErrors(8);
 
         if(!empty($err)){
             $this->showForm($err);

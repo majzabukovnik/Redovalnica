@@ -17,6 +17,9 @@ class RegistracijaUrnik extends ParentController
             exit();
         }
         $razredi = $this->model->getClassData();
+        $ucitelji = $this->model->getTeacherData();
+        $uci = $this->model->getTeachesData();
+
         require_once __DIR__ . '/../views/html/RegistracijaUrnik.php';
     }
 }
