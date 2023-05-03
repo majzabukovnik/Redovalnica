@@ -14,7 +14,9 @@ class SpremeniProfilnoSliko
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        require_once __DIR__ . '/../views/html/spremeniProfilnoSliko.php';
+        view('spremeniProfilnoSliko', [
+            'err' => $err
+        ]);
     }
     public function processImageUpload(): void{
         $param = $this->role();

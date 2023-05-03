@@ -14,8 +14,11 @@ class UporabniskiProfil extends ParentController
             header('Location: /Redovalnica/prijava/');
             exit();
         }
-        $pictureDir = $this->getPictureDir();
-        require_once __DIR__ . '/../views/html/UporabniskiProfil.php';
+
+        view('UporabniskiProfil', [
+            'err' => $err,
+            'pictureDir' => $this->getPictureDir()
+        ]);
     }
 
     public function processPasswordData(): void{

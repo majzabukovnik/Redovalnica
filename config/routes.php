@@ -62,6 +62,7 @@ return [
         'POST' => [RegistrirajUci::class, 'processRegisterData']
     ],
     '/Redovalnica/registrirajUrnik/' => [
-        'GET' => [RegistracijaUrnik::class, 'showForm']
+        'GET' => [RegistracijaUrnik::class, 'showForm'],
+        'POST' => [RegistracijaUrnik::class, 'processData']
     ]
 ];

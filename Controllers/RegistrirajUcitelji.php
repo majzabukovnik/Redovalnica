@@ -15,8 +15,11 @@ class RegistrirajUcitelji extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        $razredi = $this->model->getClassData();
-        require_once __DIR__ . '/../views/html/RegistracijaUcitelja.php';
+
+        view('RegistracijaUcitelja', [
+            'err' => $err,
+            'razredi' => $this->model->getClassData()
+        ]);
     }
     public function processRegisterData(): void{
         $err = $this->findErrors(9);

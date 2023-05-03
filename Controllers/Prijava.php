@@ -15,7 +15,9 @@ class Prijava extends ParentController
             header('Location: /Redovalnica/uporabniskiProfil/');
             exit();
         }
-        require_once __DIR__ . '/../views/html/Prijava.php';
+        view('prijava', [
+            'err' => $err
+        ]);
     }
     public function processLogin(): void{
         $err = $this->findErrors(2);

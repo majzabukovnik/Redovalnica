@@ -15,9 +15,12 @@ class RegistrirajUci extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        $ucitelji = $this->model->getTeacherData();
-        $predmeti = $this->model->getSubjectData();
-        require_once __DIR__ . '/../views/html/RegistrirajUci.php';
+
+        view('RegistrirajUci', [
+            'ucitelji' => $this->model->getTeacherData(),
+            'err' => $err,
+            'predmeti' => $this->model->getSubjectData()
+        ]);
     }
 
     public function processRegisterData(): void{

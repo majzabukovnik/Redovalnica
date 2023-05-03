@@ -16,10 +16,16 @@ class RegistracijaUrnik extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        $razredi = $this->model->getClassData();
-        $ucitelji = $this->model->getTeacherData();
-        $uci = $this->model->getTeachesData();
 
-        require_once __DIR__ . '/../views/html/RegistracijaUrnik.php';
+        view('RegistracijaUrnik', [
+            'razredi' => $this->model->getClassData(),
+            'ucitelji' => $this->model->getTeacherData(),
+            'uci' => $this->model->getTeachesData(),
+            'err' => $err
+        ]);
+    }
+
+    public function processData(): void{
+
     }
 }

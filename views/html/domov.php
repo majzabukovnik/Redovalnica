@@ -19,7 +19,6 @@
         <a href="/Redovalnica/registrirajUci/">Registracija uči</a><br>
         <a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a><br>
 
-
         <br><a href="/Redovalnica/odjava/">Odjava</a><br>
 
     </div>

@@ -16,8 +16,11 @@ class RegistrirajPredmet extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        $razredi = $this->model->getClassData();
-        require_once __DIR__ . '/../views/html/RegistrirajPredmet.php';
+
+        view('RegistrirajPredmet', [
+            'err' => $err,
+            'razredi' => $this->model->getClassData()
+        ]);
     }
 
     public function processRegisterData(): void{

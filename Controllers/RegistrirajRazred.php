@@ -12,7 +12,10 @@ class RegistrirajRazred extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-        require_once __DIR__ . '/../views/html/RegistrirajRazred.php';
+
+        view('RegistrirajRazred', [
+            'err' => $err
+        ]);
     }
     public function processRegisterData(): void{
         $err = $this->findErrors(2);
