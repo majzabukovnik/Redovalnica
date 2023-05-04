@@ -109,4 +109,32 @@ abstract class ParentModel
 
         return $data;
     }
+
+    public function getTimetableData(string $razred, string $dan, string $ura): array{
+        $conn = $this->openCon();
+
+        if(!$conn){
+            return ['Connection was not successful!'];
+        }
+
+        $query = 'SELECT id_uci FROM urnik WHERE id_razreda = "' . $razred . '" AND dan = "' . $dan . '" AND ura = "' . $ura .'"';
+        $result = mysqli_query($conn, $query);
+
+        if(!$result){
+            return ['Error executing query!'];
+        }
+
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        $this->closeCon($conn);
+
+        if(!isset($data[0]['id_uci'])){
+            $data[0]['id_uci'] = "";
+        }
+
+        return $data;
+    }
 }

@@ -12,6 +12,7 @@ use Controllers\SpremeniProfilnoSliko;
 use Controllers\RegistrirajPredmet;
 use Controllers\RegistrirajUci;
 use Controllers\RegistracijaUrnik;
+use Controllers\PrikazUrnika;
 
 
 return [
@@ -28,6 +29,10 @@ return [
     ],
     '/Redovalnica/odjava/' => [
         'GET' => [Odjava::class, 'odjaviSe']
+    ],
+    '/Redovalnica/urnik/' => [
+        'GET' => [PrikazUrnika::class, 'showTimetable'],
+        'POST' => [PrikazUrnika::class, 'processData']
     ],
 
     //need to be logged in pages
