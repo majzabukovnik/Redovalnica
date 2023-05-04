@@ -24,7 +24,7 @@ class RegistrirajPredmet extends ParentController
     }
 
     public function processRegisterData(): void{
-        $err = $this->findErrors();
+        $err = $this->findErrors(2);
 
         if(!empty($err)){
             $this->showForm($err);

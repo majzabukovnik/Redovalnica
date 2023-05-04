@@ -7,7 +7,6 @@
 </head>
 
 <body>
-<body>
 <div class="navBar"><?php require_once __DIR__ . '/partials/navBar.php'; ?></div>
 <div class="main">
     <div class="leftEdge"><p class="content"></p></div>
@@ -19,7 +18,7 @@
                 <?= $ucitelj['ime'] . ' ' . $ucitelj['priimek'] ?> <br>
             <?php endforeach; ?> <br>
 
-            <label for="razred">Razred: </label>
+            <label for="razred">Predmeti: </label>
             <select name="id_predmeta">
                 <?php foreach ($predmeti as $predmet) : ?>
                     <option value="<?= $predmet['id_predmeta'] ?>"><?= $predmet['id_predmeta'] ?></option>
