@@ -1,0 +1,71 @@
+Table Razredi {
+  id_razreda varchar(3) [primary key, not null]
+  smer varchar(20) [not null]
+}
+
+Table Ucitelji {
+  id_ucitelja varchar(13) [primary key, not null]
+  ime varchar(30) [not null]
+  priimek varchar(30) [not null]
+  naslov varchar(60) [not null]
+  telefonska_stevilka varchar(9) [not null]
+  email varchar(60) [not null]
+  geslo varchar(100) [not null]
+  datum_rojstva date [not null]
+  vloga varchar(3)
+  razrednik varchar(3)
+}
+
+Table Dijaki {
+  id_dijaka varchar(13) [primary key, not null]
+  ime varchar(30) [not null]
+  priimek varchar(30) [not null]
+  naslov varchar(60) [not null]
+  telefonska_stevilka varchar(9) [not null]
+  email varchar(60) [not null]
+  geslo varchar(100) [not null]
+  datum_rojstva date [not null]
+  razred varchar(3)
+}
+
+Table Predmet {
+  id_predmeta varchar(20) [primary key, not null]
+  st_ur int [not null]
+}
+
+Table Uci {
+  id_uci int [primary key, not null]
+  id_ucitelja varchar(13) [not null]
+  id_predmeta varchar(20) [not null]
+}
+
+Table Urnik {
+  id_urnika int [not null, primary key]
+  id_razreda varchar(3) [not null]
+  id_uci int [not null]
+  ura int
+  dan varchar(3)
+}
+
+Table Ocene {
+  id_ocene int [primary key, not null]
+  id_uci int [not null]
+  id_dijaka varchar(13) [not null]
+  cas datetime [default: `current_timestamp`]
+  tip_ocene varchar(10)
+  komentar text
+}
+
+Ref: Ucitelji.razrednik > Razredi.id_razreda // many-to-one
+
+Ref: Dijaki.razred > Razredi.id_razreda // many-to-one
+
+Ref: Uci.id_ucitelja > Ucitelji.id_ucitelja // many-to-one
+Ref: Uci.id_predmeta > Predmet.id_predmeta // many-to-one
+
+Ref: Urnik.id_razreda > Razredi.id_razreda // many-to-one
+Ref: Urnik.id_uci > Uci.id_uci // many-to-one
+
+Ref: Ocene.id_uci > Uci.id_uci // many-to-one
+Ref: Ocene.id_dijaka > Dijaki.id_dijaka // many-to-one
+
