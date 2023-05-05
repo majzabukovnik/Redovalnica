@@ -13,6 +13,7 @@ use Controllers\RegistrirajPredmet;
 use Controllers\RegistrirajUci;
 use Controllers\RegistracijaUrnik;
 use Controllers\PrikazUrnika;
+use Controllers\PrikazKontaktnegaForma;
 
 
 return [
@@ -33,6 +34,10 @@ return [
     '/Redovalnica/urnik/' => [
         'GET' => [PrikazUrnika::class, 'showTimetable'],
         'POST' => [PrikazUrnika::class, 'processData']
+    ],
+    '/Redovalnica/kontakt/' => [
+        'GET' => [PrikazKontaktnegaForma::class, 'showForm'],
+        'POST' => [PrikazKontaktnegaForma::class, 'processData']
     ],
 
     //need to be logged in pages
