@@ -22,6 +22,7 @@ abstract class ParentModel
         }
 
         $query = 'SELECT id_razreda FROM Razredi';
+
         $result = mysqli_query($conn, $query);
 
         if(!$result){
@@ -94,6 +95,7 @@ abstract class ParentModel
         }
 
         $query = 'SELECT * FROM Uci';
+
         $result = mysqli_query($conn, $query);
 
         if(!$result){

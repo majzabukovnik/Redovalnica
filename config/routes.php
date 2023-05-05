@@ -1,6 +1,5 @@
 <?php
 
-use Controllers\ParentController;
 use Controllers\Index;
 use Controllers\RegistrirajDijaki;
 use Controllers\RegistrirajUcitelji;
@@ -14,6 +13,7 @@ use Controllers\RegistrirajUci;
 use Controllers\RegistracijaUrnik;
 use Controllers\PrikazUrnika;
 use Controllers\PrikazKontaktnegaForma;
+use Controllers\Ocene;
 
 
 return [
@@ -74,5 +74,9 @@ return [
     '/Redovalnica/registrirajUrnik/' => [
         'GET' => [RegistracijaUrnik::class, 'showForm'],
         'POST' => [RegistracijaUrnik::class, 'processData']
+    ],
+    '/Redovalnica/ocene/' => [
+        'GET' => [Ocene::class, 'showForm'],
+        'POST' => [Ocene::class, 'processData']
     ]
 ];
