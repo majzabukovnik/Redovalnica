@@ -10,6 +10,11 @@ class Ocene extends ParentController
         $this->model = new Model();
     }
     public function showForm(array $ucenci = [], array $ocene = [], array $err = [], string $teachesId = ''): void{
+        $barveOcen = [
+            'ustna' => 'black',
+            'pisna' => 'red',
+            'izdelek' => 'blue'
+        ];
         if(isset($_SESSION['id_ucitelja'])){
             view('oceneUcitelj', [
                 'razredi_predmeti' => $this->model->getTeacherSubjectData($_SESSION['id_ucitelja']),
@@ -17,12 +22,18 @@ class Ocene extends ParentController
                 'ocene' => $ocene,
                 'err' => $err,
                 'id_uci' => $teachesId,
-                'barva' => [
-                    'ustna' => 'black',
-                    'pisna' => 'red',
-                    'izdelek' => 'blue'
-                ]
+                'barva' => $barveOcen
             ]);
+        }
+        else if (isset($_SESSION['id_dijaka'])){
+            view('oceneDijaki', [
+                'err' => $err,
+                'barva' => $barveOcen,
+                'displayData' => $this->processGradesForDisplay($this->model->getStudentsSubjects(), $this->model->getStudentsGrades())
+            ]);
+        }
+        else{
+            header('Location: /Redovalnica/');
         }
     }
     public function processData(): void{
@@ -30,12 +41,13 @@ class Ocene extends ParentController
             $this->getGradesData();
         } else{
             $this->saveGradesData();
+            header('Location: /Redovalnica/ocene/');
         }
     }
 
     private function saveGradesData(): void{
         foreach ($_POST as $id_dijaka => $data){
-            if(!(is_null($data) || $id_dijaka === 'id_uci')){
+            if(!($data === '' || $id_dijaka === 'id_uci')){
                 list($ocena, $tip) = explode("-", $data);
                 $this->model->saveGrades($id_dijaka, $_POST['id_uci'], $ocena, $tip);
             }
@@ -55,4 +67,22 @@ class Ocene extends ParentController
         }
         $this->showForm($ucenci, $ocene, [], strval($teachesData[0]['id_uci']));
     }
+
+    private function processGradesForDisplay(array $predmeti, array $ocene): array{
+        $result = [];
+
+        foreach ($predmeti as $subject) {
+            $subject_name = $subject['id_predmeta'];
+            $result[$subject_name] = array();
+
+            foreach ($ocene as $grade) {
+                if ($grade['id_predmeta'] == $subject_name) {
+                    $result[$subject_name][] = array($grade['ocena'], $grade['tip_ocene']);
+                }
+            }
+        }
+
+        return $result;
+    }
+
 }
