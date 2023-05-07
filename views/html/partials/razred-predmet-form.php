@@ -1,7 +1,8 @@
 <?php if (empty($ucenci)): ?>
     <select name="razred">
-        <?php foreach ($razredi_predmeti as $razred) : ?>
-            <option value="<?= $razred['id_razreda'] ?>"><?= $razred['id_razreda'] ?></option>
+        <?php $unique_classes = array_unique(array_column($razredi_predmeti, 'id_razreda'));
+        foreach ($unique_classes as $razred) : ?>
+            <option value="<?php echo $razred ?>"><?php echo $razred ?></option>
         <?php endforeach; ?>
     </select> <br>
 
