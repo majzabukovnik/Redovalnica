@@ -89,14 +89,14 @@ class Ocene extends ParentModel
         return $data;
     }
 
-    public function chekcTeacherSubject(string $razred, string $predmet): bool{
+    public function checkTeacherSubject(string $razred, string $predmet): array{
         $conn = $this->openCon();
 
         if(!$conn){
-            return false;
+            return [];
         }
 
-        $query = 'SELECT uci.id_uci 
+        $query = 'SELECT DISTINCT uci.id_uci 
                     FROM uci INNER JOIN urnik 
                     ON uci.id_uci = urnik.id_uci
                     WHERE urnik.id_razreda = "' . $razred .'"
@@ -106,7 +106,7 @@ class Ocene extends ParentModel
         $result = mysqli_query($conn, $query);
 
         if(!$result){
-            return false;
+            return [];
         }
 
         $data = [];
@@ -116,9 +116,28 @@ class Ocene extends ParentModel
 
         $this->closeCon($conn);
 
-        if(empty($data)){
-            return false;
+        return $data;
+    }
+
+    public function saveGrades(string $id_dijaka, string $id_uci, string $ocena, string $tip): array{
+        $err = [];
+        $conn = $this->openCon();
+
+        if(!$conn){
+            return ['Conncetion was not successful!'];
         }
-        return true;
+
+        $prepare = $conn->prepare("INSERT INTO ocene (id_uci, id_dijaka, ocena, tip_ocene) VALUES (?,?,?,?)");
+        $prepare->bind_param('ssss',
+            $id_uci,
+            $id_dijaka,
+            $ocena,
+            $tip
+        );
+        $prepare->execute();
+
+        $this->closeCon($conn);
+
+        return $err;
     }
 }

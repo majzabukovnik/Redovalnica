@@ -17,44 +17,45 @@
         <form method="POST" action="">
             <label for="razred">Razred: <?php echo !empty($ucenci) ? $_POST['razred'] : ''; ?></label>
             <label for="predmet"> <?php echo !empty($ucenci) ? 'Predmet: ' . $_POST['predmet'] : ''; ?></label>
-            <?php if (empty($ucenci)): ?>
-                <select name="razred">
-                    <?php foreach ($razredi_predmeti as $razred) : ?>
-                        <option value="<?= $razred['id_razreda'] ?>"><?= $razred['id_razreda'] ?></option>
-                    <?php endforeach; ?>
-                </select> <br>
 
-                <label for="predmet">Predmet: <?php echo !empty($ucenci) ? $_POST['predmet'] : ''; ?></label>
-                <select name="predmet">
-                    <?php $uniquePredmeti = array_unique(array_column($razredi_predmeti, 'id_predmeta'));
-                    foreach ($uniquePredmeti as $predmet) : ?>
-                        <option value="<?= $predmet ?>"><?= $predmet ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <br>
-            <?php endif; ?>
+            <?php view('partials/razred-predmet-form', [
+                    'ucenci' => $ucenci,
+                    'razredi_predmeti' => $razredi_predmeti
+            ]); ?>
 
             <div class="ocene">
+                <input name="id_uci" value="<?php echo $id_uci; ?>" type="hidden">
                 <?php if (!empty($ucenci)): ?>
                     <table class="timetable-table">
                         <thead>
                         <tr>
                             <th>Dijaki</th>
                             <th>Ocene</th>
+                            <th>Vnos ocene</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <?php foreach ($ucenci as $ucenec): ?>
                             <tr>
-                            <td><?php echo $ucenec['priimek'] . ' ' . $ucenec['ime']; ?></td>
+                                <td><?php echo $ucenec['priimek'] . ' ' . $ucenec['ime']; ?></td>
                                 <td>
                                     <?php foreach ($ocene[$ucenec['id_dijaka']] as $ocena): ?>
                                         <?php echo '<div style="color: ' . $barva[$ocena['tip_ocene']] .'; display: inline;">' . $ocena['ocena'] . '</div>';?>
                                     <?php endforeach; ?>
-
                                 </td>
-
+                                <td>
+                                    <div style="display: inline">
+                                        <select name="<?php echo $ucenec['id_dijaka'] ?>">
+                                            <option name="<?php echo $ucenec['id_dijaka'] ?>" value=""></option>
+                                            <?php foreach ($barva as $key => $value): ?>
+                                                <?php for ($i = 1; $i < 6; $i++): ?>
+                                                    <option value="<?php echo $i . '-' . $key; ?>"><?php echo $i . ' ' . $key; ?></option>
+                                                <?php endfor; ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
