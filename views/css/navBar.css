@@ -44,7 +44,6 @@ nav {
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #ff0000;
 }
 
 .right {
@@ -85,4 +84,61 @@ img.user-profile-bigger {
 .username {
     font-size: 18px;
     color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+}
+
+ul li a {
+    display: block;
+    padding: 20px 25px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+}
+
+ul li ul.dropdown {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    top: 100%;
+    left: 0;
+}
+
+ul li:hover ul.dropdown {
+    display: block;
+}
+
+ul li:hover > a {
+    background: #f5f5f5;
+}
+
+ul li ul.dropdown li {
+    display: block;
+}
+
+ul li.dropdown:hover > a {
+    background: #fff;
+}
+ul li ul.dropdown {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+ul li ul.dropdown li a {
+    font-size: 16px; /* add this line to set the font size */
 }

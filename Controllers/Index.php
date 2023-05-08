@@ -39,6 +39,10 @@ class Index extends ParentController
     }
 
     protected function getCurrentLesson(): string{
+        if(!isset($_SESSION['ime'])){
+            return '';
+        }
+
         $trenutnaSolskaUra = '';
         $trenutniDan = '';
         $trenutniCas = DateTime::createFromFormat('H:i', date('H:i'));
@@ -59,8 +63,10 @@ class Index extends ParentController
         }
 
         if(isset($_SESSION['vloga'])){
-            return $this->model->getCurrentLessonTeacher($_SESSION['id_ucitelja'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'];
+            return $this->model->getCurrentLessonTeacher($_SESSION['id_ucitelja'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'] ?? 'prosta ura';
+
         }
-        return $this->model->getCurrentLessonStudent($_SESSION['razred'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'];
+        return $this->model->getCurrentLessonStudent($_SESSION['razred'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'] ?? 'prosta ura';
+
     }
 }

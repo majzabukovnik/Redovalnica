@@ -9,28 +9,43 @@
         <a href="/Redovalnica/" class="logo-link"><span class="logo">Redovalnica</span></a>
     </div>
     <div class="middle">
-        <a href="/Redovalnica/" class="nav-link">Domov</a>
-        <a href="/Redovalnica/ocene/" class="nav-link">Ocene</a>
-        <a href="/Redovalnica/urnik/" class="nav-link">Urnik</a>
-        <a href="/Redovalnica/kontakt/" class="nav-link">Kontakt</a>
+        <ul>
+            <li><a href="/Redovalnica/" class="nav-link">Domov</a></li>
+            <?php if (isset($_SESSION['ime'])): ?>
+                <li><a href="/Redovalnica/ocene/" class="nav-link">Ocene</a></li>
+            <?php endif; ?>
+            <li><a href="/Redovalnica/urnik/" class="nav-link">Urnik</a></li>
+            <?php if (isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'adm'): ?>
+                <li><a href="/Redovalnica/uporabniskiProfil/" class="nav-link">Administracija</a>
+                    <ul class="dropdown">
+                        <li><a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a></li>
+                        <li><a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a></li>
+                        <li><a href="/Redovalnica/registrirajRazred/">Registracija razreda</a></li>
+                        <li><a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a></li>
+                        <li><a href="/Redovalnica/registrirajUci/">Registracija uči</a></li>
+                        <li><a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a></li>
+                    </ul>
+                </li>
+            <?php endif; ?>
+            <li><a href="/Redovalnica/kontakt/" class="nav-link">Kontakt</a></li>
+        </ul>
     </div>
     <div class="right">
         <a href="/Redovalnica/prijava" class="user-profile-link">
             <div class="user-profile">
                 <?php
-                if(isset($_SESSION['ime'])){
+                if (isset($_SESSION['ime'])) {
                     $controller = new Controllers\UporabniskiProfil();
-                    echo '<img src="' .  $controller->getPictureDir() . '" alt="User profile picture"> ';
+                    echo '<img src="' . $controller->getPictureDir() . '" alt="User profile picture"> ';
                 }
                 ?>
                 <span class="username"><?php
-                    if(isset($_SESSION['ime'])){
+                    if (isset($_SESSION['ime'])) {
                         echo $_SESSION['ime'] . ' ' . $_SESSION['priimek'];
-                    }
-                    else{
+                    } else {
                         echo "Prijavi se";
                     }
-                     ?></span>
+                    ?></span>
             </div>
         </a>
     </div>

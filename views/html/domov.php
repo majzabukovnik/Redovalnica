@@ -12,7 +12,11 @@
     <div class="leftEdge"><p class="content"></p></div>
     <div class="content">
         <h1>E-redovalnica</h1>
-        <p class="trenutna_ura">Trenutna ura: <?php echo $trenutna_ura ?></p>
+
+        <?php if (isset($_SESSION['ime'])): ?>
+            <p class="trenutna_ura">Trenutna ura: <?php echo $trenutna_ura ?></p>
+        <?php endif; ?>
+
 
         <?php if (isset($_SESSION['ime'])): ?>
             <a href="/Redovalnica/urnik/">Ogled urnika</a><br>
