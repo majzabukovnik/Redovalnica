@@ -27,6 +27,7 @@
                 } else{
                     echo $_SESSION['razred'];
                 } ?></p>
+            <a href="/Redovalnica/odjava/">Odjava</a><br><br>
             <p class="osebniPodatki" style="font-weight: bold">Za spreminjanje zgornjih podatkov se prosimo obrnite na administratorja!</p>
             <br>
             <h2>Spremeni geslo</h2> <br>

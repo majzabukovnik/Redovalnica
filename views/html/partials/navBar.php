@@ -6,7 +6,7 @@
 </style>
 <nav>
     <div class="left">
-        <a href="/Redovalnica/" class="logo-link"><span class="logo">Redovalnica</span></a>
+        <a href="/Redovalnica/" class="logo-link"><span class="logo">E-redovalnica</span></a>
     </div>
     <div class="middle">
         <ul>

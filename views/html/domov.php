@@ -11,28 +11,13 @@
 <div class="main">
     <div class="leftEdge"><p class="content"></p></div>
     <div class="content">
-        <h1>E-redovalnica</h1>
-
         <?php if (isset($_SESSION['ime'])): ?>
+            <h1>Pozdravljen/a <?php echo $_SESSION['ime'] ?>!</h1>
             <p class="trenutna_ura">Trenutna ura: <?php echo $trenutna_ura ?></p>
         <?php endif; ?>
-
-
-        <?php if (isset($_SESSION['ime'])): ?>
-            <a href="/Redovalnica/urnik/">Ogled urnika</a><br>
-            <a href="/Redovalnica/ocene/">Vpis in/ali ogled ocen</a><br><br>
+        <?php if(!isset($_SESSION['ime'])): ?>
+            <h1>E-redovalnica</h1>
         <?php endif; ?>
-
-        <?php if (isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'adm'): ?>
-            <a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a> <br>
-            <a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a><br>
-            <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a><br>
-            <a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a><br>
-            <a href="/Redovalnica/registrirajUci/">Registracija uči</a><br>
-            <a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a><br>
-        <?php endif; ?>
-
-        <a href="/Redovalnica/odjava/">Odjava</a><br>
 
     </div>
     <div class="rightEdge"></div>
