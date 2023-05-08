@@ -12,16 +12,22 @@
     <div class="leftEdge"><p class="content"></p></div>
     <div class="content">
         <h1>E-redovalnica</h1>
-        <a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a><br>
+        
+        <?php if (isset($_SESSION['ime'])): ?>
+            <a href="/Redovalnica/urnik/">Ogled urnika</a><br>
+            <a href="/Redovalnica/ocene/">Vpis in ali ogled ocen</a><br><br>
+        <?php endif; ?>
 
-        <a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a> <br>
-        <a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a><br>
-        <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a><br>
-        <a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a><br>
-        <a href="/Redovalnica/registrirajUci/">Registracija uči</a><br>
-        <a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a><br>
+        <?php if (isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'adm'): ?>
+            <a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a> <br>
+            <a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a><br>
+            <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a><br>
+            <a href="/Redovalnica/registrirajPredmet/">Registracija predmeta</a><br>
+            <a href="/Redovalnica/registrirajUci/">Registracija uči</a><br>
+            <a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a><br>
+        <?php endif; ?>
 
-        <br><a href="/Redovalnica/odjava/">Odjava</a><br>
+        <a href="/Redovalnica/odjava/">Odjava</a><br>
 
     </div>
     <div class="rightEdge"></div>
