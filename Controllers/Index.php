@@ -63,10 +63,10 @@ class Index extends ParentController
         }
 
         if(isset($_SESSION['vloga'])){
-            return $this->model->getCurrentLessonTeacher($_SESSION['id_ucitelja'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'] ?? 'prosta ura';
+            return $this->model->getCurrentLessonTeacher($_SESSION['id_ucitelja'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'] ?? 'Prosta ura';
 
         }
-        return $this->model->getCurrentLessonStudent($_SESSION['razred'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'] ?? 'prosta ura';
+        return $this->model->getCurrentLessonStudent($_SESSION['razred'], $trenutniDan, $trenutnaSolskaUra)[0]['id_predmeta'] ?? 'Prosta ura';
 
     }
 }
