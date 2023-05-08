@@ -12,6 +12,8 @@
     <div class="leftEdge"><p class="content"></p></div>
     <div class="content">
         <h1>E-redovalnica</h1>
+        <a href="/Redovalnica/registrirajUrnik/">Registracija urnika</a><br>
+
         <a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a> <br>
         <a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a><br>
         <a href="/Redovalnica/registrirajRazred/">Registracija razreda</a><br>

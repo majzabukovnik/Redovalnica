@@ -47,11 +47,11 @@ return [
     ],
     '/Redovalnica/spremeniProfilnoSliko/' => [
         'GET' => [SpremeniProfilnoSliko::class, 'showForm'],
-        'POST' => [SpremeniProfilnoSliko::class, 'processImageUpload'],
-        '/Redovalnica/ocene/' => [
-            'GET' => [Ocene::class, 'showForm'],
-            'POST' => [Ocene::class, 'processData']
-        ]
+        'POST' => [SpremeniProfilnoSliko::class, 'processImageUpload']
+    ],
+    '/Redovalnica/ocene/' => [
+        'GET' => [Ocene::class, 'showForm'],
+        'POST' => [Ocene::class, 'processData']
     ],
 
     //admin pages
