@@ -16,7 +16,7 @@
             <?php endif; ?>
             <li><a href="/Redovalnica/urnik/" class="nav-link">Urnik</a></li>
             <?php if (isset($_SESSION['vloga']) && $_SESSION['vloga'] === 'adm'): ?>
-                <li><a href="/Redovalnica/uporabniskiProfil/" class="nav-link">Administracija</a>
+                <li><a href="#" class="nav-link">Administracija</a>
                     <ul class="dropdown">
                         <li><a href="/Redovalnica/registracijaDijaka/">Registracija dijaka</a></li>
                         <li><a href="/Redovalnica/registracijaUcitelja/">Registracija učitelja</a></li>
