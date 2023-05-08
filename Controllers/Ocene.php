@@ -57,13 +57,14 @@ class Ocene extends ParentController
     private function getGradesData(): void{
         $teachesData = $this->model->checkTeacherSubject($_POST['razred'], $_POST['predmet']);
         if(empty($teachesData)){
-            $this->showForm([], [], ['Izbrani učitelj ne uči izbranega razreda v tem šolskem letu!']);
+            $this->showForm([], [], ['Izbrani učitelj ne uči izbranega razreda izbranega predmeta v tem šolskem letu!']);
             return;
         }
+        $id_uci = $teachesData[0]['id_uci'];
         $ucenci = $this->model->getStudentData($_POST['razred']);
         $ocene = [];
         foreach ($ucenci as $ucenec){
-            $ocene[$ucenec['id_dijaka']] = $this->model->getGrades($ucenec['id_dijaka']);
+            $ocene[$ucenec['id_dijaka']] = $this->model->getGrades($ucenec['id_dijaka'], $id_uci);
         }
         $this->showForm($ucenci, $ocene, [], strval($teachesData[0]['id_uci']));
     }

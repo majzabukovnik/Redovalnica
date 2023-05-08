@@ -58,7 +58,7 @@ class Ocene extends ParentModel
         return $data;
     }
 
-    public function getGrades(string $id_dijaka): array{
+    public function getGrades(string $id_dijaka, string $id_uci): array{
         $conn = $this->openCon();
 
         if(!$conn){
@@ -71,6 +71,7 @@ class Ocene extends ParentModel
                     ON uci.id_uci = ocene.id_uci
                     WHERE ocene.id_dijaka = "' . $id_dijaka . '" 
                     AND uci.id_ucitelja = "' . $_SESSION['id_ucitelja'] . '"
+                    AND ocene.id_uci = "' . $id_uci . '"
                     ORDER BY cas ASC';
 
         $result = mysqli_query($conn, $query);
