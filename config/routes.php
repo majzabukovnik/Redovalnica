@@ -47,7 +47,11 @@ return [
     ],
     '/Redovalnica/spremeniProfilnoSliko/' => [
         'GET' => [SpremeniProfilnoSliko::class, 'showForm'],
-        'POST' => [SpremeniProfilnoSliko::class, 'processImageUpload']
+        'POST' => [SpremeniProfilnoSliko::class, 'processImageUpload'],
+        '/Redovalnica/ocene/' => [
+            'GET' => [Ocene::class, 'showForm'],
+            'POST' => [Ocene::class, 'processData']
+        ]
     ],
 
     //admin pages
@@ -74,9 +78,5 @@ return [
     '/Redovalnica/registrirajUrnik/' => [
         'GET' => [RegistracijaUrnik::class, 'showForm'],
         'POST' => [RegistracijaUrnik::class, 'processData']
-    ],
-    '/Redovalnica/ocene/' => [
-        'GET' => [Ocene::class, 'showForm'],
-        'POST' => [Ocene::class, 'processData']
     ]
 ];
