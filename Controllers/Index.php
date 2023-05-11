@@ -43,7 +43,7 @@ class Index extends ParentController
             return '';
         }
 
-        $trenutnaSolskaUra = '';
+        $trenutnaSolskaUra = '9';
         $trenutniDan = '';
         $trenutniCas = DateTime::createFromFormat('H:i', date('H:i'));
         for ($i = 0; $i < sizeof($this->solskeUre); $i++) {
