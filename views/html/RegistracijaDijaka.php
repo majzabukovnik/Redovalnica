@@ -28,7 +28,7 @@
             <label for="email">Email: </label>
             <input type="email" name="email"> <br>
 
-            <label for="id_dijaka">Emšo: </label>
+            <label for="id_dijaka">EMŠO: </label>
             <input type="text" name="id_dijaka"> <br>
 
             <label for="datum_rojstva">Datum rojstva: </label>
@@ -37,7 +37,7 @@
             <label for="razred">Razred: </label>
             <select name="razred">
                 <?php foreach ($razredi as $razred) : ?>
-                    <option value="<?= $razred['id_razreda'] ?>"><?= $razred['id_razreda'] ?></option>
+                    <option value="<?php $razred['id_razreda'] ?>"><?php $razred['id_razreda'] ?></option>
                 <?php endforeach; ?>
             </select> <br>
 
