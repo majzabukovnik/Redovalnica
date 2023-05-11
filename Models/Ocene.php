@@ -70,10 +70,12 @@ class Ocene extends ParentModel
         }
 
         $query = 'SELECT ocena, tip_ocene 
-                FROM ocene 
-                WHERE id_dijaka = ? 
-                AND id_uci = ? 
-                AND id_ucitelja = ?
+                FROM ocene INNER JOIN dijaki 
+                ON ocene.id_dijaka = dijaki.id_dijaka INNER JOIN uci
+                ON uci.id_uci = ocene.id_uci
+                WHERE ocene.id_dijaka = ? 
+                AND uci.id_ucitelja = ?
+                AND ocene.id_uci = ?
                 ORDER BY cas ASC';
 
         $stmt = mysqli_prepare($conn, $query);
@@ -82,7 +84,7 @@ class Ocene extends ParentModel
             return ['Error preparing statement!'];
         }
 
-        mysqli_stmt_bind_param($stmt, "sss", $id_dijaka, $id_uci, $_SESSION['id_ucitelja']);
+        mysqli_stmt_bind_param($stmt, "sss", $id_dijaka, $_SESSION['id_ucitelja'], $id_uci);
         mysqli_stmt_execute($stmt);
 
         $result = mysqli_stmt_get_result($stmt);
@@ -101,6 +103,7 @@ class Ocene extends ParentModel
 
         return $data;
     }
+
     public function checkTeacherSubject(string $razred, string $predmet): array {
         $conn = $this->openCon();
 
