@@ -4,23 +4,25 @@ namespace Models;
 
 class IndexModel extends ParentModel
 {
-    public function getCurrentLessonStudent(string $razred, string $dan, string $ura): array{
+    public function getCurrentLessonStudent(string $razred, string $dan, string $ura): array {
         $conn = $this->openCon();
-
-        if(!$conn){
+        if (!$conn) {
             return [];
         }
 
         $query = 'SELECT uci.id_predmeta
                     FROM uci INNER JOIN urnik
                     ON uci.id_uci = urnik.id_uci
-                    WHERE urnik.id_razreda="' . $razred . '"
-                    AND urnik.ura="' . $ura . '"
-                    AND urnik.dan="' . $dan . '"';
+                    WHERE urnik.id_razreda=?
+                    AND urnik.ura=?
+                    AND urnik.dan=?';
 
-        $result = mysqli_query($conn, $query);
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "sss", $razred, $ura, $dan);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-        if(!$result){
+        if (!$result) {
             return [];
         }
 
@@ -34,23 +36,25 @@ class IndexModel extends ParentModel
         return $data;
     }
 
-    public function getCurrentLessonTeacher(string $id_ucitelja, string $dan, string $ura): array{
+    public function getCurrentLessonTeacher(string $id_ucitelja, string $dan, string $ura): array {
         $conn = $this->openCon();
-
-        if(!$conn){
+        if (!$conn) {
             return [];
         }
 
         $query = 'SELECT uci.id_predmeta
                     FROM uci INNER JOIN urnik
                     ON uci.id_uci = urnik.id_uci
-                    WHERE uci.id_ucitelja="' . $id_ucitelja . '"
-                    AND urnik.ura="' . $ura . '"
-                    AND urnik.dan="' . $dan . '"';
+                    WHERE uci.id_ucitelja=?
+                    AND urnik.ura=?
+                    AND urnik.dan=?';
 
-        $result = mysqli_query($conn, $query);
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "sss", $id_ucitelja, $ura, $dan);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-        if(!$result){
+        if (!$result) {
             return [];
         }
 

@@ -119,8 +119,11 @@ abstract class ParentModel
             return ['Connection was not successful!'];
         }
 
-        $query = 'SELECT id_uci FROM urnik WHERE id_razreda = "' . $razred . '" AND dan = "' . $dan . '" AND ura = "' . $ura .'"';
-        $result = mysqli_query($conn, $query);
+        $query = 'SELECT id_uci FROM urnik WHERE id_razreda = ? AND dan = ? AND ura = ?';
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("sss", $razred, $dan, $ura);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if(!$result){
             return ['Error executing query!'];

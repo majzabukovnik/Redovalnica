@@ -29,8 +29,10 @@ class UporabniskiProfil extends ParentModel
         return $err;
     }
     private function getCurrentPassword(\mysqli $conn, string $tabela): string{
-        $query = 'SELECT geslo FROM '. $tabela . ' WHERE email="' . $_SESSION['email'] .'"';
-        $result = mysqli_query($conn, $query);
+        $stmt = $conn->prepare('SELECT geslo FROM ' . $tabela . ' WHERE email = ?');
+        $stmt->bind_param('s', $_SESSION['email']);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if(!$result){
             return 'Error executing query!';
@@ -41,6 +43,7 @@ class UporabniskiProfil extends ParentModel
                 return $row['geslo'];
             }
         }
+
         return "";
     }
 

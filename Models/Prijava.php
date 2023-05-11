@@ -4,15 +4,17 @@ namespace Models;
 
 class Prijava extends ParentModel
 {
-    public function getLoginData($table, $email): array{
+    public function getLoginData(string $table, string $email): array{
         $conn = $this->openCon();
 
         if(!$conn){
             return ['Conncetion was not successful!'];
         }
 
-        $query = 'SELECT * FROM '. $table . ' WHERE email="' . $email .'"';
-        $result = mysqli_query($conn, $query);
+        $stmt = $conn->prepare('SELECT * FROM ' . $table . ' WHERE email=?');
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if(!$result){
             return ['Error executing query!'];
@@ -29,4 +31,5 @@ class Prijava extends ParentModel
 
         return $data;
     }
+
 }
