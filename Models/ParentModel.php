@@ -156,7 +156,7 @@ abstract class ParentModel
                     JOIN Predmet ON Uci.id_predmeta = Predmet.id_predmeta
                     LEFT JOIN Ocene ON Uci.id_uci = Ocene.id_uci
                     GROUP BY Ucitelji.id_ucitelja, Predmet.id_predmeta
-                    HAVING COUNT(Ocene.id_ocene) > 0';
+                    ORDER BY Ucitelji.priimek, Ucitelji.ime, Predmet.id_predmeta';
 
         $stmt = $conn->prepare($query);
         $stmt->execute();
