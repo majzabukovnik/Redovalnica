@@ -14,7 +14,6 @@ class RegistrirajDijaki extends ParentController
             header('Location: /Redovalnica/domov/');
             exit();
         }
-
         view('RegistracijaDijaka', [
             'razredi' => $this->model->getClassData(),
             'err' => $err

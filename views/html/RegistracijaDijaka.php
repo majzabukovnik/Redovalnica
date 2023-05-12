@@ -37,7 +37,7 @@
             <label for="razred">Razred: </label>
             <select name="razred">
                 <?php foreach ($razredi as $razred) : ?>
-                    <option value="<?php $razred['id_razreda'] ?>"><?php $razred['id_razreda'] ?></option>
+                    <option value="<?php echo $razred['id_razreda'] ?>"><?php echo $razred['id_razreda'] ?></option>
                 <?php endforeach; ?>
             </select> <br>
 
@@ -46,7 +46,7 @@
             <div>
                 <ul>
                     <?php foreach ($err as $error) : ?>
-                        <li><?php echo $error ?></li>
+                        <li style="color: black"><?php echo $error ?></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
